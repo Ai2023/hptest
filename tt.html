@@ -1,0 +1,51 @@
+<?php
+
+// Directive列の文字列を配列にまとめる
+$directives = array(
+	"mbstring" => array(
+		"mbstring.detect_order",
+		"mbstring.encoding_translation",
+		"mbstring.func_overload",
+		"mbstring.http_input    pass",
+		"mbstring.http_output",
+		"mbstring.internal_encoding",
+		"mbstring.language",
+		"mbstring.substitute_character",
+		)
+	);
+
+// 設定値を取得する
+foreach ($directives["mbstring"] as $v) {
+	$info["mbstring"][$v] = ini_get($v);
+}
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>myphpinfo()</title>
+<meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" />
+<style type="text/css">
+<!-- 略 phpinfo()の出力ソースに合わせています -->
+</style>
+</head>
+<body>
+<div class="center">
+<h2><a name="module_mbstring">mbstring</a></h2>
+<table border="0" cellpadding="3" width="600">
+<tr class="h"><th>Directive</th><th>Local Value</th></tr>
+<?php 
+
+//取得した設定値を表形式で出力。
+foreach ($info["mbstring"] as $k => $v) {
+	if ($v == "") {
+		$v = "<i>no value</i>";
+	}
+	echo "<tr><td class=\"e\">{$k}</td><td class=\"v\">{$v}</td></tr>\n";
+}
+?>
+</table>
+</br>
+</div>
+</body>
+</html>

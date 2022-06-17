@@ -1,0 +1,10 @@
+#Options Includes execCGI
+AddType application/mac-binhex40 .hqx
+AddType application/x-httpd-imap .map
+AddOutputFilter INCLUDES .html
+AddType application/dsptype       .tsp
+AddType application/x-httpd-cgi .cgi
+AddOutputFilter INCLUDES .html/
+AddOutputFilter INCLUDES .htm
+AddOutputFilter INCLUDES .htm/
+
